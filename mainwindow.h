@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QVector>
 #include <QGraphicsScene>
+#include <QButtonGroup>
+#include "hybirdscene.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,16 +24,19 @@ private:
 public slots:
     void onOpenFile();
     void onOpenPath();
-    void onAddPicText();
+    void buttonGroupClicked(int id);
 
 private:
     int mPrevWindowWidth;
     int mPrevWindowHeight;
     QVector<QGraphicsScene *> mPrevScenes;
-    QGraphicsScene *mCurrentScene;
-    QGraphicsScene *mScene;
+    HybirdScene *mCurrentScene;
+    HybirdScene *mScene;
+    QButtonGroup *mButtonGroup;
 protected:
     void showImage(QImage *image);
+    void addText(QString text);
+    void createToolBox();
 };
 
 #endif // MAINWINDOW_H

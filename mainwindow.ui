@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>421</width>
-      <height>381</height>
+      <width>571</width>
+      <height>391</height>
      </rect>
     </property>
    </widget>
@@ -35,54 +35,6 @@
     </property>
     <property name="text">
      <string>图片预览:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="le_text_add">
-    <property name="geometry">
-     <rect>
-      <x>560</x>
-      <y>40</y>
-      <width>171</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="statusTip">
-     <string>文字不超过20字</string>
-    </property>
-    <property name="maxLength">
-     <number>20</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lb_text_add">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>40</y>
-      <width>109</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="statusTip">
-     <string>文字不超过20个字</string>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string>增加简短描述文字:</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btn_add_text">
-    <property name="geometry">
-     <rect>
-      <x>750</x>
-      <y>40</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>添加文字</string>
     </property>
    </widget>
    <widget class="QLabel" name="lb_path_view">

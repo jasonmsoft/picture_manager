@@ -15,13 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         utils.cpp \
         pictureitem.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    textitem.cpp \
+    hybirdscene.cpp
 
 
 
 HEADERS  += mainwindow.h \
     const.h \
     utils.h \
-    pictureitem.h
+    pictureitem.h \
+    textitem.h \
+    hybirdscene.h
 
 FORMS    += mainwindow.ui

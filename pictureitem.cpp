@@ -16,7 +16,7 @@ PictureItem::~PictureItem(){
 void PictureItem::paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget)
 {
     Utils::log(LOG_CON, "paint item x%d y%d width %d height %d \n", mX, mY, mWidth, mHeight);
-    painter->drawImage(mX, mY, *mImage, mWidth, mHeight);
+    painter->drawImage(mX, mY, *mImage, 0, 0, mWidth, mHeight);
 }
 
 
@@ -38,8 +38,6 @@ void  PictureItem::loadImage(QString picPath)
 }
 void PictureItem::setImage(QImage *image)
 {
-    //QImage *tmp = new QImage();
-    //*tmp = *image;
     mImage = image;
     initImageSize();
 }
@@ -54,5 +52,8 @@ void  PictureItem::setSize(int width, int height)
 {
     mWidth = width;
     mHeight = height;
+    QImage img = mImage->scaled(mWidth, mHeight);
+    delete mImage;
+    mImage = new QImage(img);
 }
 

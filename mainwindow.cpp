@@ -6,6 +6,7 @@
 #include "const.h"
 #include "utils.h"
 #include "pictureitem.h"
+#include "textitem.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,17 +29,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     mPrevWindowWidth = ui->gv_preview->width();
     mPrevWindowHeight = ui->gv_preview->height();
-    mScene = new QGraphicsScene(this);
+    mScene = new HybirdScene(this);
     ui->gv_preview->setScene(mScene);
+    mCurrentScene = mScene;
+
+    createToolBox();
 
     //associate with an event function
     connect(openAction, SIGNAL(triggered()), this, SLOT(onOpenFile()));
     connect(openPathAction, SIGNAL(triggered()), this, SLOT(onOpenPath()));
-    connect(ui->btn_add_text, SIGNAL(clicked()), this, SLOT(onAddPicText()));
-
-
-
-
 
 
 }
@@ -59,37 +58,39 @@ void MainWindow::onOpenFile()
 
         Utils::log(LOG_CON, "file path  : %s\n", path.toStdString().c_str());
         QImage *image = new QImage(path);
-        //QImage scaledImage = image->scaled(mPrevWindowWidth, mPrevWindowHeight);
-        //delete image;
         showImage(image);
         ui->lb_path_view->setText(path);
     }
 }
 
-void MainWindow::onAddPicText()
-{
-    Utils::log(LOG_CON, "add pic text\n");
-    if(mCurrentScene == NULL )
-    {
-        Utils::showWarning(QString::fromLocal8Bit(MSG_TIP_ADD_PIC));
-    }
-    else
-    {
-        mCurrentScene->addText("11111");
-    }
 
-}
 
 void MainWindow::showImage(QImage *image)
 {
-    //QGraphicsScene *prevScene = new QGraphicsScene(this);
-    //mScene->addPixmap(QPixmap::fromImage(*image));
     PictureItem *item = new PictureItem();
     item->setImage(image);
+    item->setSize(ui->gv_preview->width(), ui->gv_preview->height());
     mScene->addItem(item);
-    //ui->gv_preview->setScene(prevScene);
-    //mPrevScenes.push_back(prevScene);
+    ui->gv_preview->setScene(mScene);
     mCurrentScene = mScene;
+}
+
+
+void MainWindow::addText(QString text)
+{
+    TextItem *ti = new TextItem();
+    mCurrentScene->addItem(ti);
+}
+
+void MainWindow::createToolBox()
+{
+    mButtonGroup = new QButtonGroup(this);
+    mButtonGroup->setExclusive(false);
+    connect(mButtonGroup, SIGNAL(buttonClicked(int)),
+            this, SLOT(buttonGroupClicked(int)));
+
+
+
 }
 
 
@@ -98,3 +99,9 @@ void MainWindow::onOpenPath()
 {
 
 }
+
+
+ void MainWindow::buttonGroupClicked(int id)
+ {
+
+ }
