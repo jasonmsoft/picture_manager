@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mPrevWindowWidth = ui->gv_preview->width();
     mPrevWindowHeight = ui->gv_preview->height();
     mScene = new HybirdScene(this);
+    //mScene->setSceneRect(QRectF(0, 0, 500, 500));
     ui->gv_preview->setScene(mScene);
     mCurrentScene = mScene;
 
@@ -67,9 +68,7 @@ void MainWindow::onOpenFile()
 
 void MainWindow::showImage(QImage *image)
 {
-    PictureItem *item = new PictureItem();
-    item->setImage(image);
-    item->setSize(ui->gv_preview->width(), ui->gv_preview->height());
+    PictureItem *item = new PictureItem(QPixmap::fromImage(*image), NULL);
     mScene->addItem(item);
     ui->gv_preview->setScene(mScene);
     mCurrentScene = mScene;
@@ -78,8 +77,7 @@ void MainWindow::showImage(QImage *image)
 
 void MainWindow::addText(QString text)
 {
-    TextItem *ti = new TextItem();
-    mCurrentScene->addItem(ti);
+
 }
 
 void MainWindow::createToolBox()

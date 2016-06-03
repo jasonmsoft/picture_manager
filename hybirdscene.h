@@ -1,6 +1,7 @@
 #ifndef HYBIRDSCENE_H
 #define HYBIRDSCENE_H
 #include <QGraphicsScene>
+#include "textitem.h"
 
 class HybirdScene : public QGraphicsScene
 {
