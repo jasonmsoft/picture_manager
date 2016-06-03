@@ -31,6 +31,12 @@ QVariant TextItem::itemChange(GraphicsItemChange change, const QVariant &value)
 }
 
 
+void TextItem::focusOutEvent(QFocusEvent * event)
+{
+    setTextInteractionFlags(Qt::NoTextInteraction);
+    return;
+}
+
 
 
 void	TextItem::mouseMoveEvent(QGraphicsSceneMouseEvent * event)

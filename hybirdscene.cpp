@@ -21,10 +21,9 @@ void	HybirdScene::keyReleaseEvent(QKeyEvent * keyEvent)
 void	HybirdScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
      Utils::log(LOG_CON, "mouseDoubleClickEvent pos %f, %f\n", mouseEvent->scenePos().x(), mouseEvent->scenePos().y());
-     TextItem *ti = new TextItem("text item");
+     TextItem *ti = new TextItem("");
      ti->setDefaultTextColor(Qt::red);
      ti->setTextInteractionFlags(Qt::TextEditorInteraction);
-     //textItem->setTextInteractionFlags(Qt::TextEditorInteraction);
      ti->setZValue(1000.0);
      ti->setPos(mouseEvent->scenePos());
      addItem(ti);

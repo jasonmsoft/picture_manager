@@ -30,7 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
     mPrevWindowWidth = ui->gv_preview->width();
     mPrevWindowHeight = ui->gv_preview->height();
     mScene = new HybirdScene(this);
-    //mScene->setSceneRect(QRectF(0, 0, 500, 500));
     ui->gv_preview->setScene(mScene);
     mCurrentScene = mScene;
 
@@ -82,13 +81,9 @@ void MainWindow::addText(QString text)
 
 void MainWindow::createToolBox()
 {
-    mButtonGroup = new QButtonGroup(this);
-    mButtonGroup->setExclusive(false);
-    connect(mButtonGroup, SIGNAL(buttonClicked(int)),
-            this, SLOT(buttonGroupClicked(int)));
-
-
-
+    ui->tb_text->setCheckable(true);
+    ui->tb_text->setIcon(QIcon(QPixmap(":/images/textpointer.png")));
+    ui->tb_text->setIconSize(QSize(50, 50));
 }
 
 

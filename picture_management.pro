@@ -28,4 +28,6 @@ HEADERS  += mainwindow.h \
     textitem.h \
     hybirdscene.h
 
+RESOURCES   =	res.qrc
+	
 FORMS    += mainwindow.ui

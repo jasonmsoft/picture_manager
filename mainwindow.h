@@ -32,7 +32,6 @@ private:
     QVector<QGraphicsScene *> mPrevScenes;
     HybirdScene *mCurrentScene;
     HybirdScene *mScene;
-    QButtonGroup *mButtonGroup;
 protected:
     void showImage(QImage *image);
     void addText(QString text);

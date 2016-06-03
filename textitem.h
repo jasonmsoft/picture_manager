@@ -17,6 +17,7 @@ public:
     virtual void	mouseDoubleClickEvent(QGraphicsSceneMouseEvent * event);
 
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) Q_DECL_OVERRIDE;
+    void focusOutEvent(QFocusEvent * event) Q_DECL_OVERRIDE;
 };
 
 #endif // TEXTITEM_H
